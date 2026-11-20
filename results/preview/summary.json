@@ -1,0 +1,174 @@
+{
+  "mode": "preview",
+  "tuning": {
+    "42": {
+      "selected_C": 10.0,
+      "validation_f1": {
+        "0.1": 0.94824016563147,
+        "1.0": 0.9547325102880658,
+        "10.0": 0.9649484536082474
+      }
+    },
+    "123": {
+      "selected_C": 10.0,
+      "validation_f1": {
+        "0.1": 0.9649484536082474,
+        "1.0": 0.9691991786447639,
+        "10.0": 0.9775967413441955
+      }
+    },
+    "2026": {
+      "selected_C": 10.0,
+      "validation_f1": {
+        "0.1": 0.950207468879668,
+        "1.0": 0.9545454545454546,
+        "10.0": 0.9714285714285714
+      }
+    }
+  },
+  "methods": {
+    "tfidf_logistic": {
+      "per_seed": {
+        "42": {
+          "accuracy": 0.97,
+          "anomaly_precision": 1.0,
+          "anomaly_recall": 0.94,
+          "anomaly_f1": 0.9690721649484536,
+          "normal_recall": 1.0,
+          "invalid_output_rate": 0.0,
+          "latency_ms_p50": 4.080999991856515,
+          "latency_ms_p95": 26.526050007669248,
+          "confusion_matrix": {
+            "row_labels_true": [
+              "Normal",
+              "Anomaly"
+            ],
+            "column_labels_predicted": [
+              "Normal",
+              "Anomaly",
+              "Invalid"
+            ],
+            "counts": [
+              [
+                50,
+                0,
+                0
+              ],
+              [
+                3,
+                47,
+                0
+              ]
+            ]
+          }
+        },
+        "123": {
+          "accuracy": 0.99,
+          "anomaly_precision": 1.0,
+          "anomaly_recall": 0.98,
+          "anomaly_f1": 0.98989898989899,
+          "normal_recall": 1.0,
+          "invalid_output_rate": 0.0,
+          "latency_ms_p50": 5.550600006245077,
+          "latency_ms_p95": 20.055969984969106,
+          "confusion_matrix": {
+            "row_labels_true": [
+              "Normal",
+              "Anomaly"
+            ],
+            "column_labels_predicted": [
+              "Normal",
+              "Anomaly",
+              "Invalid"
+            ],
+            "counts": [
+              [
+                50,
+                0,
+                0
+              ],
+              [
+                1,
+                49,
+                0
+              ]
+            ]
+          }
+        },
+        "2026": {
+          "accuracy": 0.98,
+          "anomaly_precision": 1.0,
+          "anomaly_recall": 0.96,
+          "anomaly_f1": 0.9795918367346939,
+          "normal_recall": 1.0,
+          "invalid_output_rate": 0.0,
+          "latency_ms_p50": 4.5402999967336655,
+          "latency_ms_p95": 29.84500999446027,
+          "confusion_matrix": {
+            "row_labels_true": [
+              "Normal",
+              "Anomaly"
+            ],
+            "column_labels_predicted": [
+              "Normal",
+              "Anomaly",
+              "Invalid"
+            ],
+            "counts": [
+              [
+                50,
+                0,
+                0
+              ],
+              [
+                2,
+                48,
+                0
+              ]
+            ]
+          }
+        }
+      },
+      "across_seeds": {
+        "accuracy": {
+          "mean": 0.98,
+          "sample_sd": 0.010000000000000009
+        },
+        "anomaly_precision": {
+          "mean": 1.0,
+          "sample_sd": 0.0
+        },
+        "anomaly_recall": {
+          "mean": 0.96,
+          "sample_sd": 0.020000000000000018
+        },
+        "anomaly_f1": {
+          "mean": 0.9795209971940458,
+          "sample_sd": 0.010413593186814058
+        },
+        "normal_recall": {
+          "mean": 1.0,
+          "sample_sd": 0.0
+        },
+        "invalid_output_rate": {
+          "mean": 0.0,
+          "sample_sd": 0.0
+        },
+        "latency_ms_p50": {
+          "mean": 4.7239666649450855,
+          "sample_sd": 0.7518185514681237
+        },
+        "latency_ms_p95": {
+          "mean": 25.475676662366208,
+          "sample_sd": 4.978331969670867
+        }
+      }
+    }
+  },
+  "paired_accuracy_deltas": [],
+  "incident_counts": {
+    "Normal": 50,
+    "Anomaly": 50
+  },
+  "empty_sessions": 0
+}
