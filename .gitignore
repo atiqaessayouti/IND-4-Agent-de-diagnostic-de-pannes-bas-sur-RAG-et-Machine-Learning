@@ -1,0 +1,6 @@
+.venv/
+.venv-ind4/
+__pycache__/
+*.py[cod]
+data/raw/
+results/*/
