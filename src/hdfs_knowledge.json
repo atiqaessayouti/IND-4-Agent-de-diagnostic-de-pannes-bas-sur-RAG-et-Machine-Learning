@@ -1,0 +1,50 @@
+[
+  {
+    "id": "HDFS-01",
+    "title": "NameNode, DataNode, and block lifecycle",
+    "source": "https://hadoop.apache.org/docs/r1.2.1/hdfs_design.pdf#page=4",
+    "text": "The NameNode maintains filesystem metadata and chooses block locations. DataNodes serve block reads and writes and execute creation, deletion, and replication requests. A DataNode receiving or deleting a block can therefore be participating in routine work."
+  },
+  {
+    "id": "HDFS-02",
+    "title": "Replication factor and block reports",
+    "source": "https://hadoop.apache.org/docs/r1.2.1/hdfs_design.pdf#page=6",
+    "text": "A file is split into blocks, and each block can be stored in multiple replicas. DataNodes report the blocks they store to the NameNode. Several messages about different replicas of one block are expected and are not evidence of corruption by themselves."
+  },
+  {
+    "id": "HDFS-03",
+    "title": "Rack-aware replica placement and read selection",
+    "source": "https://hadoop.apache.org/docs/r1.2.1/hdfs_design.pdf#page=7",
+    "text": "Replica placement distributes copies across nodes and racks. Reads prefer a nearby replica where possible. Seeing messages involving different nodes does not establish a failed transfer or a network outage."
+  },
+  {
+    "id": "HDFS-04",
+    "title": "Safe mode and startup block reports",
+    "source": "https://hadoop.apache.org/docs/r1.2.1/hdfs_design.pdf#page=7",
+    "text": "At startup the NameNode enters safe mode while waiting for enough reported replicas. Replication does not occur in safe mode. Once it exits, it can schedule replication for blocks with insufficient copies. Delay alone does not prove permanent failure."
+  },
+  {
+    "id": "HDFS-05",
+    "title": "Heartbeats, unavailable DataNodes, and re-replication",
+    "source": "https://hadoop.apache.org/docs/r1.2.1/hdfs_design.pdf#page=9",
+    "text": "The NameNode uses periodic heartbeats to monitor DataNodes. A missing node can make some replicas unavailable. Under-replication can also follow a disk failure, corruption, or a changed replication factor; re-replication by itself does not identify the initiating cause."
+  },
+  {
+    "id": "HDFS-06",
+    "title": "Data integrity, checksums, and corrupt replicas",
+    "source": "https://hadoop.apache.org/docs/r1.2.1/hdfs_design.pdf#page=9",
+    "text": "HDFS verifies data integrity by comparing checksums. A read with a corrupt replica can be retried from another replica. A checksum mismatch is evidence of an integrity problem, not proof that every replica was lost or that a particular disk was defective."
+  },
+  {
+    "id": "HDFS-07",
+    "title": "Block write pipeline and acknowledgement",
+    "source": "https://hadoop.apache.org/docs/r1.2.1/hdfs_design.pdf#page=11",
+    "text": "For replicated writes, a client sends data to a DataNode, which forwards it to the next pipeline node while writing to local storage. Repeated receive and write activity is compatible with ordinary replication; a transfer exception or failed write is a more direct failure observation."
+  },
+  {
+    "id": "HDFS-08",
+    "title": "Deletion and freeing storage",
+    "source": "https://hadoop.apache.org/docs/r1.2.1/hdfs_design.pdf#page=12",
+    "text": "Deletion can cause HDFS to remove blocks or excess replicas as part of normal space reclamation. The fact that a block was removed from one DataNode does not on its own imply unexpected data loss."
+  }
+]
