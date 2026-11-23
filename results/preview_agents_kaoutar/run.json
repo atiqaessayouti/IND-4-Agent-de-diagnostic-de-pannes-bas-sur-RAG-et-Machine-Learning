@@ -1,0 +1,69 @@
+{
+  "mode": "preview",
+  "methods": [
+    "tfidf_logistic",
+    "llm_rag",
+    "llm_no_retrieval"
+  ],
+  "data_sha256": {
+    "archive": "04f919f2185821f23f045dca611a7586429bdabc601bd7b43f30005f8e289b01"
+  },
+  "source_sha256": {
+    "src/agent.py": "13608d1fcf033703601b3780059bcdafef116f2a1638c339e782745ad81c3886",
+    "src/baseline/evaluate.py": "3cc665272300602da5c53655947c1562e812161aabd36d23582f2492ee4b7aec",
+    "src/baseline/train.py": "e38052f38f2ae7bd76d5b52c597598352ae59442c0fc327cb4dd4b03fdd6e31a",
+    "src/data/build_dataset.py": "5a9d012e260b6b25dbbc843d16e2f4f193dc15a6063520694897caac4be095d1",
+    "src/data/check_environment.py": "6ddff9c06d63ce985a726417dd25bda903d5cf288a899e4caf9e04410443ad3d",
+    "src/data/preprocess.py": "ba9c4d8d7b1c8f089aac7e43a748f91fa6781b22de2b3ee7bfd5f132d5430d2c",
+    "src/experiment.py": "6c29c4b391ac833822d9c63197ac8d838ff8ab7325616efbdf5d0cb10cf5d764",
+    "src/hdfs_knowledge.json": "ee20ca9a87eb225ea71d11e1491f4eb56a56472502c3fdae222e0107c735527f",
+    "src/metrics.py": "54cb439956ff9a6f00fc459eb69f45634c048ebb05169a303ed9c5ec8b31ef8b",
+    "src/protocol.py": "982e751da5a9824658a1bdae63678ea94fdcd6ce87c866e41c113c91831673aa",
+    "src/review.py": "cb5ad56f9254633151fc2dffa039eb9f7e85b2ed56fa56e63175576df00081ce"
+  },
+  "python": "3.12.5",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "processor": "Intel64 Family 6 Model 140 Stepping 1, GenuineIntel",
+  "dependency_versions": {
+    "numpy": "2.5.4",
+    "pandas": "3.1.1",
+    "scikit-learn": "1.9.1",
+    "scipy": "1.18.1",
+    "threadpoolctl": "3.8.0",
+    "joblib": "1.6.0"
+  },
+  "ollama": {
+    "name": "qwen2.5:3b-instruct",
+    "digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+    "ollama_version": "0.40.17"
+  },
+  "settings": {
+    "seeds": [
+      42,
+      123,
+      2026
+    ],
+    "split_seed": 4604,
+    "eval_per_label": 50,
+    "train_counts": {
+      "Normal": 5000,
+      "Anomaly": 1000
+    },
+    "validation_counts": {
+      "Normal": 1000,
+      "Anomaly": 250
+    },
+    "strength_grid": [
+      0.1,
+      1.0,
+      10.0
+    ],
+    "events_per_end": 12,
+    "max_event_chars": 240,
+    "top_k": 3,
+    "num_ctx": 8192,
+    "num_predict": 350,
+    "temperature": 0.2,
+    "bootstrap_reps": 5000
+  }
+}
